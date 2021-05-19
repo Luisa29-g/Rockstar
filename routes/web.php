@@ -45,3 +45,55 @@ Route::get('arreglos' , function() {
 
 
 });
+
+
+Route::get('paises', function () {
+    //
+    //Fuertemente Tipados: Debe definir el tipo de dato
+    //                     No se puede cambiar el tipo de dato
+    //                     JAVA, .NET, GO
+    //
+    //Debilmente Tipados: No se requiere definir el tipo de dato
+    //                    Puede cambiar el tipo de dato
+    //                    PHP, JAVASCRIPT, PYTHON
+
+    $paises= [ "Colombia" => [
+                                "Capital" => "Bogota",
+                                "Moneda" => "Peso",
+                                "Poblacion" => 51
+                             ] ,
+               "Peru" =>[
+                          "Capital" => "Lima",
+                          "Moneda" => "Soles",
+                          "Poblacion" => 32.8
+                       ],
+               "Paraguay" =>[
+                               "Capital" => "Asunción",
+                               "Moneda" => "Guarani",
+                               "Poblacion" => 7.3
+
+                            ]
+            ];
+
+                //llamar a vista con datos de paises
+                //alias: nombre con el cual
+                //       se reconocen los datos de la vista
+
+                return view('paises')->with("naciones" , $paises);
+
+});
+
+Route::get('formulario_buscador', "MetabuscadorController@formulario_buscador" );
+
+Route::post('buscar' , "MetabuscadorController@buscar" );
+
+
+
+
+
+
+
+
+
+
+
